@@ -5,7 +5,7 @@
 
 body {
   font-family: Verdana, sans-serif;
-  background-color: #e5e5e5;
+  background-color: #f0f0f0;
 }
 
 nav {
@@ -42,7 +42,6 @@ nav {
 }
 
 #entry-background {
-  background-color: #f0f0f0;
   min-height: 100vh;
   max-width: 900px;
   margin: 0 auto;
