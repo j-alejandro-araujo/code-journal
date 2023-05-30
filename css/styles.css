@@ -1,0 +1,129 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: Verdana, sans-serif;
+  background-color: #e5e5e5;
+}
+
+#code-journal-header {
+  background-color: #562a81;
+  color: white;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 22px;
+  font-weight: lighter;
+  letter-spacing: 0.1rem;
+  width: 100%;
+  height: 4rem;
+  padding-left: 1rem;
+  padding-top: 1.25rem;
+}
+
+#left-column {
+  padding-bottom: 1.5rem;
+}
+
+#new-entry {
+  margin: 0 1rem;
+}
+
+#entry-background {
+  background-color: #f0f0f0;
+  min-height: 100vh;
+}
+
+#url-top-padding {
+  padding-top: 1.5rem;
+}
+
+#notes-top-padding {
+  padding-top: 1.5rem;
+}
+
+#notes {
+  height: 12rem;
+}
+
+.container {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.new-entry-header {
+  font-size: 30px;
+  font-weight: lighter;
+  padding: 1rem 0;
+}
+
+.input-labels {
+  font-size: 16px;
+  padding-bottom: 0.75rem;
+}
+
+.user-input {
+  border: 2.5px solid #b6b6b6;
+  border-radius: 0.25rem;
+  width: 100%;
+  height: 4vh;
+  font-size: 14px;
+  padding-top: 0;
+}
+
+.user-input:focus {
+  outline: none;
+  border-color: #562a81;
+}
+
+.column-half {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+#image {
+  width: 100%;
+  height: 35vh;
+  border-radius: 0.25rem;
+  object-fit: cover;
+}
+
+.column-full {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  align-items: flex-start;
+  padding: 0;
+}
+
+.submit {
+  color: white;
+  background-color: #562a81;
+  font-size: 16px;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  margin-left: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .column-half {
+    flex-basis: 50%;
+  }
+
+  #left-column {
+    padding-right: 0.5rem;
+    padding-bottom: 0;
+  }
+
+  #right-column {
+    padding-left: 0.5rem;
+  }
+}
