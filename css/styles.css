@@ -8,6 +8,15 @@ body {
   background-color: #e5e5e5;
 }
 
+.wrapper {
+  /* background-color: #f0f0f0; */
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 #code-journal-header {
   background-color: #562a81;
   color: white;
@@ -44,12 +53,6 @@ body {
 
 #notes {
   height: 12rem;
-}
-
-.container {
-  width: 100%;
-  height: auto;
-  margin: 0 auto;
 }
 
 .new-entry-header {
@@ -113,7 +116,7 @@ body {
   margin-left: auto;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 576px) {
   .column-half {
     flex-basis: 50%;
   }
