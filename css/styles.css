@@ -4,7 +4,7 @@
 }
 
 body {
-  font-family: "Open Sans", "Proza Libre", sans-serif;
+  font-family: "Open Sans", sans-serif;
   background-color: #f0f0f0;
 }
 
@@ -26,7 +26,7 @@ nav {
 
 #code-journal-header {
   color: white;
-  font-family: "Open Sans", "Proza Libre", sans-serif;
+  font-family: "Proza Libre", sans-serif;
   font-size: 22px;
   letter-spacing: 0.1rem;
   padding: 1.75rem 1rem;
