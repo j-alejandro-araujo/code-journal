@@ -4,7 +4,7 @@
 }
 
 body {
-  font-family: Verdana, sans-serif;
+  font-family: "Open Sans", "Proza Libre", sans-serif;
   background-color: #f0f0f0;
 }
 
@@ -13,9 +13,9 @@ nav {
 }
 
 .container {
-  width: 100%;
   margin: 0 auto;
   padding: 0;
+  max-width: 900px;
 }
 
 .head-background {
@@ -26,9 +26,8 @@ nav {
 
 #code-journal-header {
   color: white;
-  font-family: "Gill Sans", sans-serif;
+  font-family: "Open Sans", "Proza Libre", sans-serif;
   font-size: 22px;
-  font-weight: lighter;
   letter-spacing: 0.1rem;
   padding: 1.75rem 1rem;
 }
@@ -61,7 +60,6 @@ nav {
 
 .new-entry-header {
   font-size: 30px;
-  font-weight: lighter;
   padding: 1rem 0;
 }
 
@@ -121,10 +119,6 @@ nav {
 }
 
 @media screen and (min-width: 768px) {
-  .column-half {
-    flex-basis: 50%;
-  }
-
   #left-column {
     padding-right: 0.5rem;
     padding-bottom: 0;

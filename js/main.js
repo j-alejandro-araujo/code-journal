@@ -2,8 +2,8 @@ const $photoUrlInput = document.querySelector('#photo-url');
 const $photoPreview = document.querySelector('#image');
 
 $photoUrlInput.addEventListener('input', () => {
-  const $imageUrl = $photoUrlInput.value;
-  $photoPreview.src = $imageUrl;
+  const imageUrl = $photoUrlInput.value;
+  $photoPreview.src = imageUrl;
 });
 
 const $form = document.querySelector('#new-entry');
@@ -13,7 +13,7 @@ const $notesInput = document.querySelector('#notes');
 $form.addEventListener('submit', event => {
   event.preventDefault();
 
-  var entry = {
+  const entry = {
     entryId: data.nextEntryId,
     title: $titleInput.value,
     notes: $notesInput.value,

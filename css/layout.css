@@ -29,6 +29,6 @@
   }
 
   .column-half {
-    width: 50%;
+    flex-basis: 50%;
   }
 }
