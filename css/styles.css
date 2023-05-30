@@ -118,6 +118,11 @@ nav {
   margin-left: auto;
 }
 
+.submit:hover {
+  background-color: #985dd4;
+  cursor: pointer;
+}
+
 @media screen and (min-width: 768px) {
   #left-column {
     padding-right: 0.5rem;
