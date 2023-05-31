@@ -20,13 +20,14 @@
       <div class="container">
         <nav>
           <p id="code-journal-header">Code Journal</p>
+          <a class="header-link" data-view="entries">Entries</a>
         </nav>
       </div>
     </div>
   </header>
   <main>
-    <div data-view="entry-form" id="entry-background">
-      <form id="new-entry">
+    <div data-view="entry-form" id="entry-background" class="view-tab hidden">
+      <form id="form">
         <h3 class="new-entry-header">New Entry</h3>
         <div class="row" id="two-column">
           <div class="column-half" id="left-column">
@@ -48,7 +49,20 @@
         </div>
       </form>
     </div> <!-- entry form closing div -->
-    <div data-view="entries" class="hidden"></div>
+
+    <div data-view="entries" class="view-tab hidden">
+      <div class="space-between row">
+        <h2 id="entry-header">Entries</h2>
+        <a id="new-entry" data-view="entry-form">NEW</a>
+      </div>
+      <div class="row">
+        <div class="column-full text-cen">
+          <p class="hidden">No entries have been recorded.</p>
+        </div>
+      </div>
+      <ul class="entries-list">
+      </ul>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>

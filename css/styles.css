@@ -12,6 +12,11 @@ nav {
   width: 100%;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
 .container {
   margin: 0 auto;
   padding: 0;
@@ -36,7 +41,7 @@ nav {
   padding-bottom: 1.5rem;
 }
 
-#new-entry {
+#form {
   margin: 0 1rem;
 }
 

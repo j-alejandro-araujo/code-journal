@@ -1,5 +1,9 @@
-.hidden {
+/* .hidden {
   display: none !important;
+} */
+
+#entry-background {
+  display: none;
 }
 
 .container {
