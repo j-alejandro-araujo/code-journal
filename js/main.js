@@ -14,18 +14,38 @@ const $notesInput = document.querySelector('#notes');
 $form.addEventListener('submit', event => {
   event.preventDefault();
 
-  const entry = {
-    entryId: data.nextEntryId,
-    title: $titleInput.value,
-    notes: $notesInput.value,
-    photo: $photoUrlInput.value
-  };
+  if (data.editing === null) {
+    const entry = {
+      entryId: data.nextEntryId,
+      title: $titleInput.value,
+      notes: $notesInput.value,
+      photo: $photoUrlInput.value
+    };
+    data.nextEntryId++;
+    data.entries.unshift(entry);
+    const newEntry = renderEntry(entry);
+    $entryList.prepend(newEntry);
+  } else {
+    const updatedEntry = {
+      entryId: data.editing.entryId,
+      title: $titleInput.value,
+      notes: $notesInput.value,
+      photo: $photoUrlInput.value
+    };
 
-  data.nextEntryId++;
-  data.entries.unshift(entry);
+    const editingIndex = data.entries.findIndex(entry => entry.entryId === data.editing.edntryId);
 
-  const newEntry = renderEntry(entry);
-  $entryList.prepend(newEntry);
+    if (editingIndex !== -1) {
+      data.entries[editingIndex] = updatedEntry;
+      const updatedEntryDOM = renderEntry(updatedEntry);
+      const $originalEntry = $entryList.querySelector('li[data-entry-id="' + data.editing.entryId + '"]');
+
+      $entryList.replaceChild(updatedEntryDOM, $originalEntry);
+    }
+
+    $formHeading.textContent = 'New Entry';
+    data.editing = null;
+  }
 
   viewSwap('entries');
   toggleNoEntries();
