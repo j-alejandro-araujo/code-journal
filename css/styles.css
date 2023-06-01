@@ -9,12 +9,31 @@ body {
 }
 
 nav {
+  display: flex;
   width: 100%;
 }
 
 ul {
   list-style-type: none;
   padding: 0;
+}
+
+li {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.entry-photos > img {
+  width: 100%;
+  border-radius: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 2rem;
+}
+
+.column-half > p {
+  padding: 0 1rem;
+  font-size: 16px;
 }
 
 .container {
@@ -45,7 +64,7 @@ ul {
   margin: 0 1rem;
 }
 
-#entry-background {
+#main-background {
   min-height: 100vh;
   max-width: 900px;
   margin: 0 auto;
@@ -97,7 +116,6 @@ ul {
 
 #image {
   width: 100%;
-  height: 35vh;
   border-radius: 0.25rem;
   object-fit: cover;
 }
@@ -123,9 +141,57 @@ ul {
   margin-left: auto;
 }
 
-.submit:hover {
+#new-entry {
+  color: white;
+  background-color: #562a81;
+  font-size: 16px;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  margin-left: auto;
+}
+
+.submit:active,
+#new-entry:active {
   background-color: #985dd4;
+}
+
+.submit:hover,
+#new-entry:hover {
   cursor: pointer;
+}
+
+#entries-link {
+  color: white;
+  padding-top: 2.1rem;
+  font-family: "Proza Libre", sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.1rem;
+}
+
+#entries-link:hover {
+  cursor: pointer;
+}
+
+#entries-header {
+  font-size: 30px;
+}
+
+.space-between {
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.no-entries-text {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#entries-width {
+  margin: 0 auto;
+  max-width: 900px;
 }
 
 @media screen and (min-width: 768px) {
