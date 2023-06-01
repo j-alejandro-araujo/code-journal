@@ -23,6 +23,15 @@ li {
   padding-bottom: 1rem;
 }
 
+i {
+  color: #562a81;
+  font-size: larger;
+}
+
+i:hover {
+  cursor: pointer;
+}
+
 .entry-photos > img {
   width: 100%;
   border-radius: 0.5rem;
@@ -180,8 +189,9 @@ li {
 }
 
 .space-between {
-  justify-content: space-between;
+  display: flex;
   padding: 1rem;
+  justify-content: space-between;
 }
 
 .no-entries-text {
