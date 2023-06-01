@@ -33,7 +33,7 @@ $form.addEventListener('submit', event => {
       photo: $photoUrlInput.value
     };
 
-    const editingIndex = data.entries.findIndex(entry => entry.entryId === data.editing.edntryId);
+    const editingIndex = data.entries.findIndex(entry => entry.entryId === data.editing.entryId);
 
     if (editingIndex !== -1) {
       data.entries[editingIndex] = updatedEntry;
@@ -132,28 +132,34 @@ $entriesAnchor.addEventListener('click', () => {
 });
 
 $newEntryAnchor.addEventListener('click', () => {
-  viewSwap('entry-form');
+  if (data.editing === null) {
+    viewSwap('entry-form');
+  } else {
+    $form.reset();
+    data.editing = null;
+    $formHeading.textContent = 'New Entry';
+    $photoPreview.src = 'images/placeholder-image-square.jpg';
+  }
 });
 
 const $formHeading = document.querySelector('div[data-view="entry-form"] h3');
 
 $entryList.addEventListener('click', event => {
-  viewSwap('entry-form');
   const $selectedEntry = event.target.closest('li');
-  const selectedId = $selectedEntry.getAttribute('data-entry-id');
-
-  if (event.target.classList.contains('fa-pencil')) {
+  const $pencilIcon = $selectedEntry.querySelector('.fa-pencil');
+  if ($pencilIcon && event.target === $pencilIcon) {
     viewSwap('entry-form');
-  }
-  for (let i = 0; i < data.entries.length; i++) {
-    if (Number(selectedId) === data.entries[i].entryId) {
-      data.editing = data.entries[i];
-      break;
+    const selectedId = $selectedEntry.getAttribute('data-entry-id');
+    for (let i = 0; i < data.entries.length; i++) {
+      if (Number(selectedId) === data.entries[i].entryId) {
+        data.editing = data.entries[i];
+        break;
+      }
     }
+    $form.elements.title.value = data.editing.title;
+    $form.elements.photo.value = data.editing.photo;
+    $form.elements.notes.value = data.editing.notes;
+    $photoPreview.setAttribute('src', data.editing.photo);
+    $formHeading.textContent = 'Edit Entry';
   }
-  $form.elements.title.value = data.editing.title;
-  $form.elements.photo.value = data.editing.photo;
-  $form.elements.notes.value = data.editing.notes;
-  $photoPreview.setAttribute('src', data.editing.photo);
-  $formHeading.textContent = 'Edit Entry';
 });
