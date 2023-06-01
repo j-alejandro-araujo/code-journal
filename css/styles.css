@@ -34,6 +34,7 @@ li {
 .column-half > p {
   padding: 0 1rem;
   font-size: 16px;
+  white-space: pre-wrap;
 }
 
 .container {
