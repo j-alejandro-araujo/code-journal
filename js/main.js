@@ -1,6 +1,6 @@
 const $photoUrlInput = document.querySelector('#photo-url');
 const $photoPreview = document.querySelector('#image');
-const $entryList = document.querySelector('.entries-list');
+const $entryList = document.querySelector('ul');
 
 $photoUrlInput.addEventListener('input', () => {
   const imageUrl = $photoUrlInput.value;
@@ -54,13 +54,19 @@ function renderEntry(entry) {
   const $entryTitle = document.createElement('h3');
   $entryTitle.textContent = entry.title;
   $entryTitle.setAttribute('class', 'space-between');
-
   $textDiv.appendChild($entryTitle);
+
+  const $faPencil = document.createElement('i');
+  $faPencil.setAttribute('class', 'fa fa-pencil');
+  $faPencil.setAttribute('aria-hidden', 'true');
+  $entryTitle.appendChild($faPencil);
+
   const $paragraph = document.createElement('p');
   $paragraph.textContent = entry.notes.trim();
 
   $textDiv.appendChild($paragraph);
   $listEntry.appendChild($textDiv);
+
   return $listEntry;
 }
 
@@ -107,4 +113,27 @@ $entriesAnchor.addEventListener('click', () => {
 
 $newEntryAnchor.addEventListener('click', () => {
   viewSwap('entry-form');
+});
+
+const $formHeading = document.querySelector('div[data-view="entry-form"] h3');
+
+$entryList.addEventListener('click', event => {
+  viewSwap('entry-form');
+  const $selectedEntry = event.target.closest('li');
+  const selectedId = $selectedEntry.getAttribute('data-entry-id');
+
+  if (event.target.classList.contains('fa-pencil')) {
+    viewSwap('entry-form');
+  }
+  for (let i = 0; i < data.entries.length; i++) {
+    if (Number(selectedId) === data.entries[i].entryId) {
+      data.editing = data.entries[i];
+      break;
+    }
+  }
+  $form.elements.title.value = data.editing.title;
+  $form.elements.photo.value = data.editing.photo;
+  $form.elements.notes.value = data.editing.notes;
+  $photoPreview.setAttribute('src', data.editing.photo);
+  $formHeading.textContent = 'Edit Entry';
 });
