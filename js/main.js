@@ -83,34 +83,28 @@ function toggleNoEntries() {
   }
 }
 
+const $view = document.querySelector('div[data-view="entries"]');
+const $oldView = document.querySelector('div[data-view="entry-form"]');
+
 function viewSwap(view) {
   if (view === 'entries') {
-    var $view = document.querySelector('div[data-view="entries"]');
     $view.setAttribute('class', '');
     data.view = view;
-    var $oldView = document.querySelector('div[data-view="entry-form"]');
     $oldView.setAttribute('class', 'hidden');
   } else {
-    $view = document.querySelector('div[data-view="entry-form"]');
-    $view.setAttribute('class', '');
+    $view.setAttribute('class', 'hidden');
     data.view = view;
-    $oldView = document.querySelector('div[data-view="entries"');
-    $oldView.setAttribute('class', 'hidden');
+    $oldView.setAttribute('class', '');
   }
 }
 
 const $entriesAnchor = document.querySelector('#entries-link');
+const $newEntryAnchor = document.querySelector('#new-entry');
 
-$entriesAnchor.addEventListener('click', event => {
-  event.preventDefault();
-  const viewTarget = $entriesAnchor.getAttribute('data-view');
-  viewSwap(viewTarget);
+$entriesAnchor.addEventListener('click', () => {
+  viewSwap('entries');
 });
 
-const $entriesFormAnchor = document.querySelector('#new-entry');
-
-$entriesFormAnchor.addEventListener('click', event => {
-  event.preventDefault();
-  const viewTarget = $entriesFormAnchor.getAttribute('data-view');
-  viewSwap(viewTarget);
+$newEntryAnchor.addEventListener('click', () => {
+  viewSwap('entry-form');
 });
