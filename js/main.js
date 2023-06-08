@@ -111,12 +111,14 @@ function toggleNoEntries() {
 
 const $view = document.querySelector('div[data-view="entries"]');
 const $oldView = document.querySelector('div[data-view="entry-form"]');
+const $deleteButton = document.querySelector('#delete-button');
 
 function viewSwap(view) {
   if (view === 'entries') {
     $view.setAttribute('class', '');
     data.view = view;
     $oldView.setAttribute('class', 'hidden');
+    $deleteButton.classList.add('hidden');
   } else {
     $view.setAttribute('class', 'hidden');
     data.view = view;
@@ -161,5 +163,39 @@ $entryList.addEventListener('click', event => {
     $form.elements.notes.value = data.editing.notes;
     $photoPreview.setAttribute('src', data.editing.photo);
     $formHeading.textContent = 'Edit Entry';
+    $deleteButton.classList.remove('hidden');
   }
+});
+
+const $popup = document.querySelector('#popup');
+const $cancelButton = document.querySelector('#cancel');
+const $confirmButton = document.querySelector('#confirm');
+
+$deleteButton.addEventListener('click', () => {
+  $popup.classList.remove('hidden');
+});
+
+$cancelButton.addEventListener('click', () => {
+  $popup.classList.add('hidden');
+});
+
+$confirmButton.addEventListener('click', () => {
+  for (let i = 0; i < data.entries.length; i++) {
+    if (data.editing.entryId === data.entries[i].entryId) {
+      data.entries.splice(i, 1);
+      break;
+    }
+  }
+  const $removeLi = document.querySelector('[data-entry-id="' + data.editing.entryId + '"]');
+  $removeLi.remove();
+  if (data.entries.length === 0) {
+    toggleNoEntries();
+  }
+  $popup.classList.add('hidden');
+  viewSwap('entries');
+  data.editing = null;
+  $form.reset();
+  $photoPreview.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $deleteButton.classList.add('hidden');
+  $formHeading.textContent = 'New Entry';
 });

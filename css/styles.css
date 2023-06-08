@@ -28,10 +28,6 @@ i {
   font-size: larger;
 }
 
-i:hover {
-  cursor: pointer;
-}
-
 .entry-photos > img {
   width: 100%;
   border-radius: 0.5rem;
@@ -146,7 +142,7 @@ i:hover {
   border: none;
   border-radius: 0.25rem;
   padding: 0.5rem 1rem;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   margin-bottom: 1.5rem;
   margin-left: auto;
 }
@@ -167,21 +163,12 @@ i:hover {
   background-color: #985dd4;
 }
 
-.submit:hover,
-#new-entry:hover {
-  cursor: pointer;
-}
-
 #entries-link {
   color: white;
   padding-top: 2.1rem;
   font-family: "Proza Libre", sans-serif;
   font-size: 16px;
   letter-spacing: 0.1rem;
-}
-
-#entries-link:hover {
-  cursor: pointer;
 }
 
 #entries-header {
@@ -203,6 +190,91 @@ i:hover {
 #entries-width {
   margin: 0 auto;
   max-width: 900px;
+}
+
+#popup {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #27262688;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal > p {
+  font-size: 16px;
+  text-align: center;
+}
+
+.modal {
+  position: relative;
+  top: -5rem;
+  background-color: #f0f0f0;
+  width: 25rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+#delete-button {
+  border: none;
+  color: red;
+  font-size: 16px;
+  margin-top: 1rem;
+  padding: 0;
+  text-decoration: underline;
+}
+
+#cancel {
+  border: none;
+  border-radius: 0.25rem;
+  color: black;
+  background-color: #acacac;
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-top: 1rem;
+  align-self: flex-end;
+}
+
+#cancel:active {
+  background-color: rgb(195, 195, 195);
+}
+
+#confirm {
+  border: none;
+  border-radius: 0.25rem;
+  color: white;
+  background-color: red;
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-top: 1rem;
+  align-self: flex-end;
+}
+
+.buttons-container {
+  width: 100vw;
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+#delete-button:hover,
+#cancel:hover,
+#confirm:hover,
+#entries-link:hover,
+.submit:hover,
+#new-entry:hover,
+i:hover {
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
